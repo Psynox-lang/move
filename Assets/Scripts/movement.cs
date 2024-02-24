@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class movement : MonoBehaviour
-{
-    private Vector2 dir = Vector2.right;
+{   [Header("Movement Settings")]
     public float speed = 5;     
     [SerializeField]
     float MaxSpeed = 25;
+
+    private Vector2 dir = Vector2.right;
     public Rigidbody2D rb;
     Quaternion target;
     // Start is called before the first frame update
