@@ -8,6 +8,9 @@ public class movement : MonoBehaviour
     [SerializeField]
     float MaxSpeed = 25;
 
+
+    [SerializeField]
+    SpriteRenderer spriteRenderer;
     private Vector2 dir = Vector2.right;
     public Rigidbody2D rb;
     Quaternion target;
@@ -18,13 +21,21 @@ public class movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(horizontalInput, verticalInput);
-
+        
+        if(rb.velocity.x<0 || horizontalInput<0)
+        {
+            spriteRenderer.flipY=true;
+        }
+        else if(rb.velocity.x>0 || horizontalInput>0)
+        {
+            spriteRenderer.flipY=false;
+        }
         if (movement != Vector2.zero)
         {
             dir = movement.normalized;
@@ -38,7 +49,7 @@ public class movement : MonoBehaviour
             }
         }
         //rb.velocity = dir * speed;
-        transform.rotation = Quaternion.Slerp(transform.rotation,target,0.01f);
+        transform.rotation = Quaternion.Slerp(transform.rotation,target,0.1f);
     }
 }
 
