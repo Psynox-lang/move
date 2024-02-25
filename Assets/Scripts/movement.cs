@@ -11,7 +11,12 @@ public class movement : MonoBehaviour
 
     [SerializeField]
     SpriteRenderer spriteRenderer;
-    private Vector2 dir = Vector2.right;
+    [SerializeField]
+    SpriteRenderer outlinespriteRenderer;
+    private Vector2 dir ;
+
+
+
     public Rigidbody2D rb;
     Quaternion target;
     // Start is called before the first frame update
@@ -31,10 +36,12 @@ public class movement : MonoBehaviour
         if(rb.velocity.x<0 || horizontalInput<0)
         {
             spriteRenderer.flipY=true;
+            outlinespriteRenderer.flipY=true;
         }
         else if(rb.velocity.x>0 || horizontalInput>0)
         {
             spriteRenderer.flipY=false;
+            outlinespriteRenderer.flipY=false;
         }
         if (movement != Vector2.zero)
         {
