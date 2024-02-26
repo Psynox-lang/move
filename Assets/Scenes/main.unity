@@ -146,9 +146,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetPrefab: {fileID: 6128674685024249156, guid: 6a58dbe28d1949649a9d06d9c7d7ac9e, type: 3}
+  portalPrefab: {fileID: 750620301532759226, guid: 60ad28f95b892492d8a75a2a791e76de, type: 3}
   numberOfPlanets: 3
-  minSpawnInterval: 2
-  maxSpawnInterval: 5
+  minPlanetSpawnInterval: 2
+  maxPlanetSpawnInterval: 5
+  numberOfPortals: 3
+  minPortalSpawnInterval: 2
+  maxPortalSpawnInterval: 5
   squareArea: {fileID: 7472077}
 --- !u!1 &57695210
 GameObject:
@@ -163,9 +167,11 @@ GameObject:
   - component: {fileID: 57695212}
   - component: {fileID: 57695215}
   - component: {fileID: 57695214}
+  - component: {fileID: 57695216}
+  - component: {fileID: 57695217}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,10 +291,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00000059604645, y: -0.04592967}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -299,7 +305,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.3069715, y: 2.1941848}
   m_EdgeRadius: 0
 --- !u!50 &57695215
 Rigidbody2D:
@@ -328,6 +334,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &57695216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57695210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52744e6bcc4be46b59afbb3d9297c369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 0.5
+--- !u!114 &57695217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57695210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b55923e4bd242278e7380f375f4229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &211381001
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +755,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5e326becce7cb6e459c2ac7325b2703c, type: 3}
-  m_Color: {r: 0.561958, g: 0.28475437, b: 0.745283, a: 1}
+  m_Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1037,7 +1068,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5628520316232675856, guid: d3d72d8299862427b8f59a97a8050fe0, type: 3}
       propertyPath: speed
-      value: 175
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5628520316232675856, guid: d3d72d8299862427b8f59a97a8050fe0, type: 3}
       propertyPath: player
