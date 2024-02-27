@@ -61,9 +61,4 @@ public class portalEnd : MonoBehaviour
             Destroy (gameObject);
         }
     }
-
-    void OnBecameInvisible()
-    {
-        Destroy (gameObject);
-    }
 }

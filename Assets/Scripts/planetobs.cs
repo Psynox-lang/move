@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class planetobs : MonoBehaviour
 {
-    public float deleteTime = 3f; // Time in seconds before the planet is deleted if off-screen
 
-    public float offScreenTimeThreshold = 2f; // Time in seconds the planet should be off-screen continuously to be deleted
-
-    private float offScreenTimer = 0f;
-
-    private bool isOffScreen = false;
 
     public ScoreManager sc;
 
@@ -34,38 +28,7 @@ public class planetobs : MonoBehaviour
     {
         Destroy(gameObject);
     }*/
-    private void Update()
-    {
-        // Check if the planet is off-screen
-        if (!IsVisible())
-        {
-            isOffScreen = true;
-            offScreenTimer += Time.deltaTime;
 
-            // If off-screen for more than offScreenTimeThreshold, delete the planet
-            if (offScreenTimer >= offScreenTimeThreshold)
-            {
-                Destroy (gameObject);
-            }
-        }
-        else
-        {
-            isOffScreen = false;
-            offScreenTimer = 0f;
-        }
-    }
-
-    private bool IsVisible()
-    {
-        // Check if the planet is visible on the screen
-        Vector3 screenPoint =
-            Camera.main.WorldToViewportPoint(transform.position);
-        return screenPoint.x > 0 &&
-        screenPoint.x < 1 &&
-        screenPoint.y > 0 &&
-        screenPoint.y < 1 &&
-        screenPoint.z > 0;
-    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

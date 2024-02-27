@@ -8,7 +8,7 @@ public class movement : MonoBehaviour
     [SerializeField]
     float MaxSpeed = 25;
     [SerializeField]
-    float speedReduction = 0.15f;
+    float speedReduction = 0f;
 
     [SerializeField]
     SpriteRenderer spriteRenderer;

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4779457224692581243}
   - component: {fileID: -4421769093286780363}
   - component: {fileID: 6677397465503810970}
+  - component: {fileID: 5331595206934487335}
   m_Layer: 0
   m_Name: New Prefab
   m_TagString: Planet
@@ -47,8 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d532bf9b7412764cb293cbfcd261768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deleteTime: 3
-  offScreenTimeThreshold: 2
+  sc: {fileID: 0}
 --- !u!23 &-4421769093286780363
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -126,6 +126,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.026053837}
   serializedVersion: 2
   m_Radius: 1.5903833
+--- !u!114 &5331595206934487335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128674685024249156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa79bd87e12e4e4ea4a0356396c05c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offScreenTimeThreshold: 6
 --- !u!1 &8877863804977121775
 GameObject:
   m_ObjectHideFlags: 0

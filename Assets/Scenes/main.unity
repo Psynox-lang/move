@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   MaxSpeed: 15
-  speedReduction: 0.5
+  speedReduction: 0
   spriteRenderer: {fileID: 57695213}
   outlinespriteRenderer: {fileID: 1424939190}
   rb: {fileID: 57695215}
