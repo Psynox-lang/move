@@ -22,7 +22,7 @@ public class portalEnd : MonoBehaviour
         colors.Add(Color.yellow);
         colors.Add(Color.magenta);
         randomInt = Random.Range(0, colors.Count);
-        float slsize = Random.Range(0.1f, 0.3f);
+        float slsize = Random.Range(0.2f, 0.5f);
         transform.localScale = new Vector3(slsize, slsize, 1);
         sc =
             GameObject
