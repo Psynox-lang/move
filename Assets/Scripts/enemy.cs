@@ -72,14 +72,15 @@ public class enemy : MonoBehaviour
                 Player.GetComponent<colourChangePortal>().body.color
             )
             {
-                sc.incrementScore(35);
+               sc.incrementScore(35, other.gameObject.transform.position);
+
 
                 Destroy(other.gameObject);
                 //score plus
             }
             else
             {
-                sc.incrementScore(-10);
+                sc.incrementScore(-10,other.gameObject.transform.position);
 
             }
         }

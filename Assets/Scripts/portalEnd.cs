@@ -57,7 +57,7 @@ public class portalEnd : MonoBehaviour
                 .GetComponent<colourChangePortal>()
                 .randomColour(colors[randomInt]);
 
-            sc.incrementScore(15);
+            sc.incrementScore(15,transform.position);
             Destroy (gameObject);
         }
     }

@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = score + "";
     }
 
-    public void incrementScore(int value)
+    public void incrementScore(int value, Vector3 yposition)
     {
         score += value;
         

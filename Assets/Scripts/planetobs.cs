@@ -45,7 +45,7 @@ public class planetobs : MonoBehaviour
                 transform.GetChild(0).GetComponent<colourPlanet>().body.color
             )
             {
-                sc.incrementScore(25);
+                sc.incrementScore(25,transform.position);
                 Instantiate(sameColor,transform.position, Quaternion.identity);
                 Destroy (gameObject);
                 
