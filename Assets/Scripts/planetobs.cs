@@ -8,7 +8,7 @@ public class planetobs : MonoBehaviour
 
     public ScoreManager sc;
     public GameObject differentColor;
-    public ParticleSystem sameColor;
+    public GameObject sameColor;
 
     void Start()
     {
@@ -46,8 +46,8 @@ public class planetobs : MonoBehaviour
             )
             {
                 sc.incrementScore(25);
-                sameColor.Play();
-
+                Instantiate(sameColor,transform.position, Quaternion.identity);
+                Destroy (gameObject);
                 
             }
             else
@@ -56,10 +56,8 @@ public class planetobs : MonoBehaviour
                     .gameObject
                     .GetComponent<movement>().RedSpeed();
                 Instantiate(differentColor,transform.position, Quaternion.identity);
+                Destroy (gameObject);
             }
         }
     }
-    // void OnTriggerExit2D(Collider2D other) {
-    //    if (other.tag == "Player") Destroy (gameObject);
-    // }
 }
