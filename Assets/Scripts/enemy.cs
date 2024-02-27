@@ -73,12 +73,14 @@ public class enemy : MonoBehaviour
             )
             {
                 sc.incrementScore(35);
+
                 Destroy(other.gameObject);
                 //score plus
             }
             else
             {
                 sc.incrementScore(-10);
+
             }
         }
     }

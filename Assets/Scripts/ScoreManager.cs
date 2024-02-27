@@ -11,6 +11,9 @@ public class ScoreManager : MonoBehaviour
 
     private float timer = 0f;
 
+    public GameObject damagepopup;
+    [SerializeField]
+    Transform player;
     [SerializeField]
     TMP_Text scoreText;
 
@@ -29,5 +32,9 @@ public class ScoreManager : MonoBehaviour
     public void incrementScore(int value)
     {
         score += value;
+        
+        var obj =Instantiate(damagepopup, player.position, Quaternion.identity);
+        obj.GetComponent<TMP_Text>().text = value+"";
+        Debug.Log("h");
     }
 }

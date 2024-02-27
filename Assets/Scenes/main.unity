@@ -185,6 +185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   increaseInterval: 1
+  damagepopup: {fileID: 6085449824706825138, guid: e5852eb2a42d9664ea89001aefa333d5, type: 3}
+  player: {fileID: 57695211}
   scoreText: {fileID: 170736313}
 --- !u!4 &45374348
 Transform:
