@@ -6,7 +6,7 @@ public class colourChangePortal : MonoBehaviour
 {
     
     
-    private SpriteRenderer body;
+    public SpriteRenderer body;
 
     // Start is called before the first frame update
     void Start()

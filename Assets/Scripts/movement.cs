@@ -7,7 +7,8 @@ public class movement : MonoBehaviour
     public float speed = 5;     
     [SerializeField]
     float MaxSpeed = 25;
-
+    [SerializeField]
+    float speedReduction = 0.15f;
 
     [SerializeField]
     SpriteRenderer spriteRenderer;
@@ -57,6 +58,10 @@ public class movement : MonoBehaviour
         }
         //rb.velocity = dir * speed;
         transform.rotation = Quaternion.Slerp(transform.rotation,target,0.1f);
+    }
+
+    public void RedSpeed(){
+        rb.velocity *= speedReduction;
     }
 }
 
