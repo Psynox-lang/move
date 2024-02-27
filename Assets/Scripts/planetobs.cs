@@ -7,6 +7,8 @@ public class planetobs : MonoBehaviour
 
 
     public ScoreManager sc;
+    public GameObject differentColor;
+    public GameObject sameColor;
 
     void Start()
     {
@@ -44,13 +46,16 @@ public class planetobs : MonoBehaviour
             )
             {
                 sc.incrementScore(25);
+                Instantiate(sameColor,transform.position, Quaternion.identity);
                 Destroy (gameObject);
+                
             }
             else
             {
                 other
                     .gameObject
                     .GetComponent<movement>().RedSpeed();
+                Instantiate(differentColor,transform.position, Quaternion.identity);
                 Destroy (gameObject);
             }
         }

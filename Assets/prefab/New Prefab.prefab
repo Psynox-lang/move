@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sc: {fileID: 0}
+  differentColor: {fileID: 5297137505010575748, guid: c1e8f24fb73a04b04ba6e4049a6e5bdc, type: 3}
+  sameColor: {fileID: 7852219718455314627, guid: 8d3ffe60cc5df4a9a80e1b6f8713cc25, type: 3}
 --- !u!23 &-4421769093286780363
 MeshRenderer:
   m_ObjectHideFlags: 0
