@@ -56,6 +56,8 @@ public class enemy : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            //add function call to end player effect here
+            
             Destroy(other.gameObject);
             Destroy(gameObject);
             sc.gameObject.SetActive(false);
@@ -87,4 +89,8 @@ public class enemy : MonoBehaviour
             }
         }
     }
+    // void endgame(){
+    //     Invoke("")
+    // }
+   
 }
