@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
     {
         score += value;
         
-        var obj =Instantiate(damagepopup, player.position, Quaternion.identity);
+        var obj =Instantiate(damagepopup, yposition, Quaternion.identity);
         obj.GetComponent<TMP_Text>().text = value+"";
         Debug.Log("h");
     }

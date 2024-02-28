@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3463279943786707930}
   - component: {fileID: 4467430390453984467}
   - component: {fileID: 8772177760330258228}
-  - component: {fileID: 7939080041098621929}
   - component: {fileID: 8579475575694037220}
   m_Layer: 0
   m_Name: PopUpp
@@ -173,27 +172,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 4467430390453984467}
   m_maskType: 0
---- !u!95 &7939080041098621929
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6085449824706825138}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3e6c81403b2d6104fa686921cf930f88, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8579475575694037220
 MonoBehaviour:
   m_ObjectHideFlags: 0

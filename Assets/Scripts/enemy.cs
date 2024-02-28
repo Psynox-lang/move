@@ -12,7 +12,8 @@ public class enemy : MonoBehaviour
     public float speed;
 
     public Vector3 velocity;
-
+    public GameObject differentColor;
+    public GameObject sameColor;
     [SerializeField]
     Rigidbody2D rb;
 
@@ -74,14 +75,15 @@ public class enemy : MonoBehaviour
             {
                sc.incrementScore(35, other.gameObject.transform.position);
 
-
+                Instantiate(differentColor,other.gameObject.transform.position, Quaternion.identity);
                 Destroy(other.gameObject);
                 //score plus
             }
             else
             {
                 sc.incrementScore(-10,other.gameObject.transform.position);
-
+                Instantiate(sameColor,other.gameObject.transform.position, Quaternion.identity);
+                Destroy(other.gameObject);
             }
         }
     }
