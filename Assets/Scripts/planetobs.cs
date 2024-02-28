@@ -47,6 +47,7 @@ public class planetobs : MonoBehaviour
             {
                 sc.incrementScore(25,transform.position);
                 Instantiate(sameColor,transform.position, Quaternion.identity);
+                
                 Destroy (gameObject);
                 
             }
@@ -56,6 +57,8 @@ public class planetobs : MonoBehaviour
                     .gameObject
                     .GetComponent<movement>().RedSpeed();
                 Instantiate(differentColor,transform.position, Quaternion.identity);
+                other.gameObject.GetComponent<colourChangePortal>().setFlash();
+                other.gameObject.GetComponent<colourChangePortal>().setFlash();
                 Destroy (gameObject);
             }
         }
