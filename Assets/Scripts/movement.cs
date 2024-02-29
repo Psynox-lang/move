@@ -14,6 +14,8 @@ public class movement : MonoBehaviour
     SpriteRenderer spriteRenderer;
     [SerializeField]
     SpriteRenderer outlinespriteRenderer;
+    [SerializeField]
+    SpriteRenderer dedspriteRenderer;
     private Vector2 dir ;
 
 
@@ -38,11 +40,13 @@ public class movement : MonoBehaviour
         {
             spriteRenderer.flipY=true;
             outlinespriteRenderer.flipY=true;
+            dedspriteRenderer.flipY=true;
         }
         else if(rb.velocity.x>0 || horizontalInput>0)
         {
             spriteRenderer.flipY=false;
             outlinespriteRenderer.flipY=false;
+            dedspriteRenderer.flipY=false;
         }
         if (movement != Vector2.zero)
         {
