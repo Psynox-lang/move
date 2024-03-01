@@ -21,6 +21,7 @@ public class enemy : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     public ScoreManager sc;
+    [SerializeField] GameObject end;
 
     void Start()
     {
@@ -58,8 +59,10 @@ public class enemy : MonoBehaviour
         {
             //add function call to end player effect here
             other.gameObject.GetComponent<colourChangePortal>().endMusic();
+            end.SetActive(true);
             Destroy(other.gameObject);
             Destroy(gameObject);
+            sc.setHighScore();
             sc.gameObject.SetActive(false);
         }
         else if (other.tag == "Planet")
