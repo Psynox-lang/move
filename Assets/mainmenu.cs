@@ -6,17 +6,7 @@ using TMPro;
 
 public class mainmenu : MonoBehaviour
 {
-    [SerializeField] TMP_Text highscoreText;
-    void Start(){
-        if (!PlayerPrefs.HasKey("highScore"))
-        {
-          PlayerPrefs.SetInt("highScore", 0);
-        }
-        else
-        {
-            highscoreText.text="High Score: "+PlayerPrefs.GetInt("highScore");
-        }
-    }
+
    public void playgame()
     {
         SceneManager.LoadScene("main");
