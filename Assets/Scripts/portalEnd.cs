@@ -44,6 +44,7 @@ public class portalEnd : MonoBehaviour
             ParticleSystem.MainModule mainModule = particleSystem.main;
             mainModule.startColor = colors[randomInt];
             particleSystem.Play();
+            other.gameObject.GetComponent<colourChangePortal>().portalMusic();
         }
     }
 

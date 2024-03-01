@@ -8,6 +8,11 @@ public class colourChangePortal : MonoBehaviour
     
     public SpriteRenderer body;
     public GameObject flash;
+    public AudioSource audioSource;
+    public AudioClip portal;
+    public AudioClip end;
+    public AudioClip hurt;
+    public AudioClip samePlanet;
 
     // Start is called before the first frame update
     void Start()
@@ -36,4 +41,23 @@ public class colourChangePortal : MonoBehaviour
         for(int i=0; i<3; i++)
         Invoke("setFlash", 0.2f);
     }
+    public void portalMusic(){
+        audioSource.PlayOneShot(portal);
+    }
+    public void endMusic(){
+        audioSource.PlayOneShot(end);
+    }
+    public void diffPlanetMusic(){
+        audioSource.PlayOneShot(hurt);
+    }
+    public void samePlanetMusic(){
+        audioSource.PlayOneShot(samePlanet);
+    }
+    // void OnTriggerEnter2D(Collider2D other) {
+    //     if(other.tag=="Portal")
+    //     {audioSource.PlayOneShot(portal);
+    //     Debug.Log("HIT");}
+    //     if(other.tag=="Enemy")
+    //     audioSource.PlayOneShot(end);
+    // }
 }

@@ -47,7 +47,7 @@ public class planetobs : MonoBehaviour
             {
                 sc.incrementScore(25,transform.position);
                 Instantiate(sameColor,transform.position, Quaternion.identity);
-                
+                other.gameObject.GetComponent<colourChangePortal>().samePlanetMusic();
                 Destroy (gameObject);
                 
             }
@@ -59,6 +59,7 @@ public class planetobs : MonoBehaviour
                 Instantiate(differentColor,transform.position, Quaternion.identity);
                 other.gameObject.GetComponent<colourChangePortal>().setFlash();
                 other.gameObject.GetComponent<colourChangePortal>().setFlash();
+                other.gameObject.GetComponent<colourChangePortal>().diffPlanetMusic();
                 Destroy (gameObject);
             }
         }

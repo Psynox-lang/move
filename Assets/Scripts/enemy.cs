@@ -57,7 +57,7 @@ public class enemy : MonoBehaviour
         if (other.tag == "Player")
         {
             //add function call to end player effect here
-            
+            other.gameObject.GetComponent<colourChangePortal>().endMusic();
             Destroy(other.gameObject);
             Destroy(gameObject);
             sc.gameObject.SetActive(false);
@@ -76,7 +76,7 @@ public class enemy : MonoBehaviour
             )
             {
                sc.incrementScore(35, other.gameObject.transform.position);
-
+                Player.GetComponent<colourChangePortal>().samePlanetMusic();
                 Instantiate(differentColor,other.gameObject.transform.position, Quaternion.identity);
                 Destroy(other.gameObject);
                 //score plus
@@ -85,6 +85,7 @@ public class enemy : MonoBehaviour
             {
                 sc.incrementScore(-10,other.gameObject.transform.position);
                 Instantiate(sameColor,other.gameObject.transform.position, Quaternion.identity);
+                 Player.GetComponent<colourChangePortal>().diffPlanetMusic();
                 Destroy(other.gameObject);
             }
         }
