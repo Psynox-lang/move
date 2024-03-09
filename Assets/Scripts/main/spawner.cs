@@ -1,9 +1,14 @@
 using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class PlanetGenerator : MonoBehaviour
 {
-    public GameObject planetPrefab;
+    
+
+    public List <GameObject> planetPrefab;
+    
 
     public GameObject portalPrefab;
 
@@ -21,10 +26,18 @@ public class PlanetGenerator : MonoBehaviour
 
     public GameObject squareArea;
 
+    public GameObject scoreinc;
+
+    private float score_increaser = 100;
+
+    private float scorer;
+
+
     void Update()
     {
         SpawnPlanetsPeriodically();
         SpawnPortalsPeriodically();
+        planetincreaser();
     }
 
     void SpawnPlanetsPeriodically()
@@ -32,7 +45,7 @@ public class PlanetGenerator : MonoBehaviour
         // Adjust this condition based on your requirements
         if (Time.time % maxPlanetSpawnInterval < Time.deltaTime)
         {
-            for (int i = 0; i < (int) Random.Range(1, numberOfPlanets); i++)
+            for (int i = 0; i < (int)Random.Range(1, numberOfPlanets); i++)
             {
                 // Get bounds of the square area
                 BoxCollider2D squareCollider =
@@ -44,13 +57,17 @@ public class PlanetGenerator : MonoBehaviour
                     new Vector2(Random
                             .Range(squareBounds.min.x, squareBounds.max.x),
                         Random.Range(squareBounds.min.y, squareBounds.max.y));
+                           
+                    int randomIndex = Random.Range(0, planetPrefab.Count-1);
+                    GameObject randomPrefab = planetPrefab[randomIndex];
 
-                GameObject newPlanet =
-                    Instantiate(planetPrefab,
-                    spawnPosition,
-                    Quaternion.identity);
+                    // Instantiate the selected prefab
+                    Instantiate(randomPrefab, spawnPosition, Quaternion.identity);
+                
             }
         }
+
+
     }
 
     void SpawnPortalsPeriodically()
@@ -58,7 +75,7 @@ public class PlanetGenerator : MonoBehaviour
         // Adjust this condition based on your requirements
         if (Time.time % maxPortalSpawnInterval < Time.deltaTime)
         {
-            for (int i = 0; i < (int) Random.Range(1, numberOfPortals); i++)
+            for (int i = 0; i < (int)Random.Range(1, numberOfPortals); i++)
             {
                 // Get bounds of the square area
                 BoxCollider2D squareCollider =
@@ -77,5 +94,18 @@ public class PlanetGenerator : MonoBehaviour
                     Quaternion.identity);
             }
         }
+    }
+
+    void planetincreaser()
+    {
+        scorer = scoreinc.GetComponent<ScoreManager>().score;
+
+        if (scorer >= score_increaser)
+        {
+            numberOfPlanets += 3;
+            score_increaser += 10;
+            Debug.Log("incedd");
+        }
+
     }
 }

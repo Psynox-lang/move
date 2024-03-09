@@ -145,15 +145,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c03acd6d3249b458d593cfb9de7a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetPrefab: {fileID: 6128674685024249156, guid: 6a58dbe28d1949649a9d06d9c7d7ac9e, type: 3}
+  planetPrefab:
+  - {fileID: 6128674685024249156, guid: a19e53d6a0434a544b6cae79000334d4, type: 3}
+  - {fileID: 6128674685024249156, guid: 32f070d7d7c5dbe488aca713b6268057, type: 3}
+  - {fileID: 6128674685024249156, guid: 518de54f336df0747ae09149425d6f04, type: 3}
   portalPrefab: {fileID: 750620301532759226, guid: 60ad28f95b892492d8a75a2a791e76de, type: 3}
-  numberOfPlanets: 6
+  numberOfPlanets: 3
   minPlanetSpawnInterval: 0.3
   maxPlanetSpawnInterval: 2
   numberOfPortals: 4
   minPortalSpawnInterval: 0.5
   maxPortalSpawnInterval: 5
   squareArea: {fileID: 7472077}
+  scoreinc: {fileID: 45374346}
 --- !u!1 &45374346
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +707,7 @@ SpriteRenderer:
   m_Size: {x: 4.26, y: 2.01}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &211381001
