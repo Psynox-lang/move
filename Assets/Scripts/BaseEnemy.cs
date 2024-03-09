@@ -13,6 +13,7 @@ public class BaseEnemy : MonoBehaviour
     {
         rendererComponent = GetComponent<Renderer>();
         rendererComponent.material.color = Color.white;
+        player = GameObject.FindWithTag("Player");
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)

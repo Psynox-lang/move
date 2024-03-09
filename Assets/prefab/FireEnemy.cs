@@ -7,6 +7,10 @@ public class FireEnemy : MonoBehaviour
     public Transform player;
     public float speed = 5f;
 
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player").transform;
+    }
     void Update()
     {
         // Check if the player is not null (exists)
