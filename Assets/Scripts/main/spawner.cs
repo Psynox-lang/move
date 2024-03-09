@@ -28,7 +28,7 @@ public class PlanetGenerator : MonoBehaviour
 
     public GameObject scoreinc;
 
-    private float score_increaser = 100;
+    public float score_increaser = 200;
 
     private float scorer;
 
@@ -61,7 +61,7 @@ public class PlanetGenerator : MonoBehaviour
                     int randomIndex = Random.Range(0, planetPrefab.Count-1);
                     GameObject randomPrefab = planetPrefab[randomIndex];
 
-                    // Instantiate the selected prefab
+            
                     Instantiate(randomPrefab, spawnPosition, Quaternion.identity);
                 
             }
@@ -102,8 +102,8 @@ public class PlanetGenerator : MonoBehaviour
 
         if (scorer >= score_increaser)
         {
-            numberOfPlanets += 3;
-            score_increaser += 10;
+            numberOfPlanets += (int)Random.Range(2,6);
+            score_increaser += 200;
             Debug.Log("incedd");
         }
 
