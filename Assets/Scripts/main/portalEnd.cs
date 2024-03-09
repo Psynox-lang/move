@@ -16,11 +16,10 @@ public class portalEnd : MonoBehaviour
     void Start()
     {
         // transform.rotation=player.transform.rotation;
-        colors.Add(Color.red);
-        colors.Add(Color.blue);
-        colors.Add(Color.green);
-        colors.Add(Color.yellow);
-        colors.Add(Color.magenta);
+        colors.Add(new Color(227f / 255f, 142f / 255f, 1f / 255f)); // RGB: (227, 142, 1)
+        colors.Add(new Color(64f / 255f, 183f / 255f, 161f / 255f)); // RGB: (64, 183, 161)
+        colors.Add(new Color(134f / 255f, 113f / 255f, 91f / 255f)); // RGB: (134, 113, 91)
+        colors.Add(new Color(188f / 255f, 216f / 255f, 222f / 255f)); // RGB: (134, 113, 91)
         randomInt = Random.Range(0, colors.Count);
         float slsize = Random.Range(0.2f, 0.5f);
         transform.localScale = new Vector3(slsize, slsize, 1);

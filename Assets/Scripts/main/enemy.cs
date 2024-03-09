@@ -31,31 +31,25 @@ public class enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
+   void FixedUpdate()
+{
+    Vector2 direction = (player.position - transform.position).normalized;
 
-        // Increase speed based on the score threshold
-        int scoreThreshold = Mathf.FloorToInt(sc.score / score_threshold);
-        currentSpeed = speed + scoreThreshold * 0.2f; // Adjust the multiplier as needed
+    // Increase speed based on the score threshold
+    int scoreThreshold = Mathf.FloorToInt(sc.score / score_threshold);
+    currentSpeed = speed + scoreThreshold * 0.2f; // Adjust the multiplier as needed
 
-        // Move the enemy
-        transform.position += (Vector3)direction * currentSpeed * Time.fixedDeltaTime;
+    // Move the enemy using Rigidbody2D methods
+    rb.AddForce(direction * currentSpeed * Time.fixedDeltaTime,ForceMode2D.Impulse);
 
-        if (direction.x < 0)
-        {
-            spriteRenderer.flipY = true;
-        }
-        else if (direction.x > 0)
-        {
-            spriteRenderer.flipY = false;
-        }
+    // Rotate the enemy to face the direction of movement
+    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion target = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, target, 0.1f);
-    }
+    // Flip sprite if moving horizontally
+    spriteRenderer.flipY = (direction.x < 0);
+}
 
 
 
