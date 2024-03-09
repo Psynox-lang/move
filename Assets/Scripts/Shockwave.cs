@@ -9,6 +9,7 @@ public class Shockwave : MonoBehaviour
     [SerializeField]
     Rigidbody2D rbp;
     private Transform playerTransform;
+    public GameObject shock;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class Shockwave : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) // Change this to whatever key you want to trigger the shockwave
         {
+            Instantiate(shock,transform.position, Quaternion.identity);
             TriggerShockwave();
         }
     }

@@ -6,6 +6,7 @@ public class portalEnd : MonoBehaviour
 {
     // Start is called before the first frame update
     public ParticleSystem particleSystem;
+    public ParticleSystem blink;
 
     public List<Color> colors = new List<Color>();
 
@@ -47,6 +48,7 @@ public class portalEnd : MonoBehaviour
             ParticleSystem.MainModule mainModule = particleSystem.main;
             mainModule.startColor = colors[randomInt];
             particleSystem.Play();
+            blink.Play();
             other.gameObject.GetComponent<colourChangePortal>().portalMusic();
         }
     }
@@ -65,6 +67,7 @@ public class portalEnd : MonoBehaviour
                 .GetComponent<poweruphooser>().powerupchange(arr[randomInt]);
             sc.incrementScore(15,transform.position);
             Destroy (gameObject);
+            blink.Stop();
         }
     }
 }

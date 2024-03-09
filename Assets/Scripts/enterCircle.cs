@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,8 +10,6 @@ public class enterCircle : MonoBehaviour
      public float timerDuration = 1f; // Duration of the timer in seconds
     public float timer = 0f; // Current timer value
     public bool timerRunning = false; // Flag to indicate whether the timer is running
-    [SerializeField]
-    FireEnemy fireout;
     void Start()
     {
         rendererComponent = GetComponent<Renderer>();
@@ -57,7 +55,6 @@ public class enterCircle : MonoBehaviour
             if (timer <= 0)
             {
                 ffprint();
-                fireout.enabled = true;
                 timerRunning = false;
                 Destroy(gameObject);
             }

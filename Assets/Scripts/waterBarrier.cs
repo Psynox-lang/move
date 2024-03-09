@@ -7,7 +7,7 @@ public class waterBarrier : MonoBehaviour
     public float barrierDuration = 5f; // Duration for which the barrier stays on
 
     private bool isBarrierActive = false;
-
+    
     void Update()
     {
         // Check if spacebar is pressed

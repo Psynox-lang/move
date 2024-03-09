@@ -6,6 +6,7 @@ public class FireEnemy : MonoBehaviour
 {
     public Transform player;
     public float speed = 5f;
+    public Transform inner;
 
     private void Start()
     {
@@ -13,6 +14,7 @@ public class FireEnemy : MonoBehaviour
     }
     void Update()
     {
+        inner.transform.Rotate(0, 0, 2f);
         // Check if the player is not null (exists)
         if (player != null)
         {

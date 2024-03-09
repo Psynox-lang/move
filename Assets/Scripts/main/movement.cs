@@ -31,6 +31,7 @@ public class movement : MonoBehaviour
     // Closest planet reference
     private GameObject closestPlanet;
 
+    public ParticleSystem earthpl;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,8 +65,12 @@ public class movement : MonoBehaviour
             if (isControlPressed && closestPlanet != null && earth.activeSelf)
             {
                 totalForce += CalculateGravityPull();
+                earthpl.Play();
             }
 
+            else{
+                earthpl.Stop();
+            }
             rb.AddForce(totalForce, ForceMode2D.Force);
 
             if (rb.velocity.magnitude > MaxSpeed)

@@ -10,10 +10,12 @@ public class ShootingAbilities : MonoBehaviour
 
     private GameObject currentProjectile;
     private bool shooting = false;
+    public GameObject fireEffect;
 
     // Update is called once per frame
     void Update()
     {
+        
         if (playerTransform == null)
         {
             Debug.LogWarning("Player transform not assigned to ShootTowardsPlayer script.");
@@ -22,7 +24,10 @@ public class ShootingAbilities : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            var effect=Instantiate(fireEffect,transform.position, Quaternion.identity);
             StartShooting();
+            effect.transform.SetParent(currentProjectile.transform);
+
         }
 
         if (Input.GetKeyUp(KeyCode.Space) && shooting)
@@ -33,6 +38,8 @@ public class ShootingAbilities : MonoBehaviour
         if (shooting && currentProjectile != null)
         {
             currentProjectile.transform.position=transform.position;
+
+            fireEffect.transform.position=transform.position;
         }
     }
 
@@ -45,6 +52,7 @@ public class ShootingAbilities : MonoBehaviour
             currentProjectile.GetComponent<fireball>().hasshot = false;
         }
         shooting = true;
+
     }
 
     public void StopShooting()
