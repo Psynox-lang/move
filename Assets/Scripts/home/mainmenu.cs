@@ -16,7 +16,7 @@ public class mainmenu : MonoBehaviour
         SceneManager.LoadScene("main");
     }
     public void mm(){
-        SceneManager.LoadScene("main trial");
+        SceneManager.LoadScene("mainmenu");
     }
     public void exit(){
         Application.Quit();
