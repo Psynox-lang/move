@@ -14,6 +14,9 @@ public class enemy : MonoBehaviour
     public Vector3 velocity;
     public GameObject differentColor;
     public GameObject sameColor;
+    public float score_threshold = 10;
+    public float currentSpeed;
+
     [SerializeField]
     Rigidbody2D rb;
 
@@ -33,25 +36,28 @@ public class enemy : MonoBehaviour
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
 
-        transform.position =
-            Vector3
-                .SmoothDamp(transform.position,
-                player.position,
-                ref velocity,
-                speed * 0.01f);
+        // Increase speed based on the score threshold
+        int scoreThreshold = Mathf.FloorToInt(sc.score / score_threshold);
+        currentSpeed = speed + scoreThreshold * 0.2f; // Adjust the multiplier as needed
 
-        if (velocity.x < 0)
+        // Move the enemy
+        transform.position += (Vector3)direction * currentSpeed * Time.fixedDeltaTime;
+
+        if (direction.x < 0)
         {
             spriteRenderer.flipY = true;
         }
-        else if (velocity.x > 0)
+        else if (direction.x > 0)
         {
             spriteRenderer.flipY = false;
         }
+
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion target = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, target, 0.1f);
     }
+
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
