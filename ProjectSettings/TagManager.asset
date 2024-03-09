@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Portal
   - Planet
+  - abber
   layers:
   - Default
   - TransparentFX

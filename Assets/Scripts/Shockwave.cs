@@ -17,7 +17,7 @@ public class Shockwave : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab)) // Change this to whatever key you want to trigger the shockwave
+        if (Input.GetKeyDown(KeyCode.Space)) // Change this to whatever key you want to trigger the shockwave
         {
             TriggerShockwave();
         }
@@ -33,7 +33,8 @@ public class Shockwave : MonoBehaviour
             
             Rigidbody2D rb = collider.GetComponent<Rigidbody2D>();
             if (rb != null && rb != rbp) // Exclude player's Rigidbody2D
-            {
+            {  
+                Debug.Log(collider.gameObject.name) ;
                 Vector3 direction = (collider.transform.position - playerTransform.position).normalized;
                 rb.AddForce(direction * force, ForceMode2D.Impulse);
             }

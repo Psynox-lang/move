@@ -16,8 +16,20 @@ public class movement : MonoBehaviour
     public Rigidbody2D rb;
     Quaternion target;
 
+    [SerializeField]
+    GameObject earth;
     // Previous movement direction
     private Vector2 prevDir;
+
+    // Gravity pull settings
+    public float gravityPullForce = 10f; // Adjust this value as needed
+    public float gravityRange = 5f; // Adjust this value as needed
+
+    // Flag to indicate if control key is pressed
+    private bool isControlPressed = false;
+
+    // Closest planet reference
+    private GameObject closestPlanet;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +58,16 @@ public class movement : MonoBehaviour
             float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
             target = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            rb.AddForce(movement * speed, ForceMode2D.Force);
+            Vector2 totalForce = movement * speed;
+
+            // Apply gravity pull if control key is pressed and closest planet is chosen
+            if (isControlPressed && closestPlanet != null && earth.activeSelf)
+            {
+                totalForce += CalculateGravityPull();
+            }
+
+            rb.AddForce(totalForce, ForceMode2D.Force);
+
             if (rb.velocity.magnitude > MaxSpeed)
             {
                 rb.velocity = rb.velocity.normalized * MaxSpeed;
@@ -60,6 +81,61 @@ public class movement : MonoBehaviour
 
         // Smooth rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, target, 0.1f);
+    }
+
+    // Calculate gravity pull towards the closest planet
+    Vector2 CalculateGravityPull()
+    {
+        Vector2 totalGravity = Vector2.zero;
+
+        if (closestPlanet != null)
+        {
+            Vector2 direction = closestPlanet.transform.position - transform.position;
+            float distance = direction.magnitude;
+
+            if (distance > 0)
+            {
+                float gravityStrength = gravityPullForce / distance;
+                totalGravity = direction.normalized * gravityStrength*1.25f;
+            }
+        }
+
+        return totalGravity;
+    }
+
+    // Update closest planet reference when control key is pressed
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isControlPressed = true;
+            FindClosestPlanet();
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isControlPressed = false;
+        }
+    }
+
+    // Find the closest planet
+    void FindClosestPlanet()
+    {
+        closestPlanet = null;
+        float closestDistance = Mathf.Infinity;
+
+        GameObject[] planets = GameObject.FindGameObjectsWithTag("Planet");
+
+        foreach (GameObject planet in planets)
+        {
+            Vector2 direction = planet.transform.position - transform.position;
+            float distance = direction.magnitude;
+
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestPlanet = planet;
+            }
+        }
     }
 
     public void RedSpeed()
