@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 872284172915117237}
   - component: {fileID: 6006215420553134224}
   m_Layer: 0
-  m_Name: fireParticle
+  m_Name: fp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4659468443817826865}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -13.97756, y: -20.936762, z: -0.01}
+  m_LocalPosition: {x: 23.189362, y: -0.72879124, z: -0.01}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []

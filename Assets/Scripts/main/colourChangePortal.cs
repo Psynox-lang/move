@@ -13,6 +13,12 @@ public class colourChangePortal : MonoBehaviour
     public AudioClip end;
     public AudioClip hurt;
     public AudioClip samePlanet;
+    public AudioClip f;
+    public AudioClip wa;
+    public AudioClip w;
+     public AudioClip shockk;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +58,18 @@ public class colourChangePortal : MonoBehaviour
     }
     public void samePlanetMusic(){
         audioSource.PlayOneShot(samePlanet);
+    }
+    public void fireball(){
+        audioSource.PlayOneShot(f);
+    }
+     public void water(){
+        audioSource.PlayOneShot(wa);
+    }
+     public void wind(){
+        audioSource.PlayOneShot(w);
+    }
+    public void shock(){
+        audioSource.PlayOneShot(shockk);
     }
     // void OnTriggerEnter2D(Collider2D other) {
     //     if(other.tag=="Portal")

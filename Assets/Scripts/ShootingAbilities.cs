@@ -27,6 +27,7 @@ public class ShootingAbilities : MonoBehaviour
             var effect=Instantiate(fireEffect,transform.position, Quaternion.identity);
             StartShooting();
             effect.transform.SetParent(currentProjectile.transform);
+            playerTransform.GetComponent<colourChangePortal>().fireball();
 
         }
 

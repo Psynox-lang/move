@@ -20,6 +20,7 @@ public class airEnemy : MonoBehaviour
     void Start()
     {
         originalRotation = Quaternion.identity;
+        playerInstance=GameObject.FindWithTag("Player");
     }
 
     void Update()
@@ -48,7 +49,6 @@ public class airEnemy : MonoBehaviour
             Rigidbody2D playerRigidbody = other.GetComponent<Rigidbody2D>();
             // Start rotating around the circle
             isInCircle = true;
-
             // Assign the player's GameObject to playerInstance
             playerInstance = other.gameObject;
         }

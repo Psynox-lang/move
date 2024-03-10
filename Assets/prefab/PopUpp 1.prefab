@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8772177760330258228}
   - component: {fileID: 8579475575694037220}
   m_Layer: 0
-  m_Name: PopUpp
+  m_Name: PopUpp 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,8 +109,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294903808
-  m_fontColor: {r: 0, g: 0.031424284, b: 1, a: 1}
+    rgba: 4279304447
+  m_fontColor: {r: 1, g: 0, b: 0.06677294, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

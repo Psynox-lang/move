@@ -13,7 +13,7 @@ public class waterBarrier : MonoBehaviour
         transform.position= pla.position;
         // Check if spacebar is pressed
         if (Input.GetKeyDown(KeyCode.Space))
-        {
+        {   pla.GetComponent<colourChangePortal>().water();
             ToggleBarrier();
         }
     }

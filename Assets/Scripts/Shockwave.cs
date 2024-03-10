@@ -20,6 +20,7 @@ public class Shockwave : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) // Change this to whatever key you want to trigger the shockwave
         {
+            playerTransform.GetComponent<colourChangePortal>().shock();
             Instantiate(shock,transform.position, Quaternion.identity);
             TriggerShockwave();
         }
