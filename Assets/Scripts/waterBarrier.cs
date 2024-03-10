@@ -5,11 +5,12 @@ public class waterBarrier : MonoBehaviour
 {
     public GameObject barrierObject; // Reference to the barrier object
     public float barrierDuration = 5f; // Duration for which the barrier stays on
-
+    public Transform pla;
     private bool isBarrierActive = false;
     
     void Update()
-    {
+    {   if(pla!=null)
+        transform.position= pla.position;
         // Check if spacebar is pressed
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -25,14 +26,13 @@ public class waterBarrier : MonoBehaviour
             barrierObject.SetActive(true);
             isBarrierActive = true;
             // Start a coroutine to turn off the barrier after a duration
-            StartCoroutine(TurnOffBarrierAfterDelay());
+            Invoke("TurnOffBarrierAfterDelay",barrierDuration);
         }
     }
 
-    IEnumerator TurnOffBarrierAfterDelay()
+    void TurnOffBarrierAfterDelay()
     {
-        // Wait for the specified duration
-        yield return new WaitForSeconds(barrierDuration);
+        
 
         // Turn the barrier object off
         barrierObject.SetActive(false);

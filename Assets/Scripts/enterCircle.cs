@@ -10,6 +10,7 @@ public class enterCircle : MonoBehaviour
      public float timerDuration = 1f; // Duration of the timer in seconds
     public float timer = 0f; // Current timer value
     public bool timerRunning = false; // Flag to indicate whether the timer is running
+    public groundEnemy gr;
     void Start()
     {
         rendererComponent = GetComponent<Renderer>();
@@ -23,13 +24,7 @@ public class enterCircle : MonoBehaviour
         {
             // Change the player's color to red
            rendererComponent.material.color= Color.red;
-
-            // Start the timer
-            if (!timerRunning)
-            {
-                timer = timerDuration;
-                timerRunning = true;
-            }
+           gr.canshoot = true;
         }
     }
 
@@ -40,24 +35,7 @@ public class enterCircle : MonoBehaviour
             // Reset the timer
             rendererComponent.material.color= Color.white;
             timerRunning = false;
-            timer = 0f;
-        }
-    }
-
-    private void Update()
-    {
-        // Update the timer if it's running
-        if (timerRunning)
-        {
-            timer -= Time.deltaTime;
-
-            // Check if the timer has ended
-            if (timer <= 0)
-            {
-                ffprint();
-                timerRunning = false;
-                Destroy(gameObject);
-            }
+            gr.canshoot = false;
         }
     }
 

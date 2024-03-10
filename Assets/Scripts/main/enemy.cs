@@ -93,8 +93,27 @@ public class enemy : MonoBehaviour
             }
         }
     }
-    // void endgame(){
-    //     Invoke("")
-    // }
-   
+ void OnCollisionEnter2D(Collision2D other)
+{
+    if (other.gameObject.tag == "Player")
+        {
+            //add function call to end player effect here
+            other.gameObject.GetComponent<colourChangePortal>().endMusic();
+            end.SetActive(true);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            sc.setHighScore();
+            sc.gameObject.SetActive(false);
+        }
+}
+public void stopgame()
+{
+    //add function call to end player effect here
+            Player.gameObject.GetComponent<colourChangePortal>().endMusic();
+            end.SetActive(true);
+            Destroy(Player.gameObject);
+            Destroy(gameObject);
+            sc.setHighScore();
+            sc.gameObject.SetActive(false);
+}
 }

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 694065690929179293}
   - component: {fileID: 8743846313439080160}
   - component: {fileID: 7381405858794396474}
-  m_Layer: 0
+  - component: {fileID: -3089869640770056937}
+  m_Layer: 7
   m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +117,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -222,3 +223,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-3089869640770056937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4058219047909165787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa79bd87e12e4e4ea4a0356396c05c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offScreenTimeThreshold: 6

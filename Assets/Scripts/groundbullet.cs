@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class groundbullet : MonoBehaviour
 {
-    void Start(){
-        Destroy(gameObject, 1f);
-    }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag=="Player"){
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag=="Player"){
+            other.gameObject.GetComponent<Heal>().decreaseHelath(10);
             Destroy(gameObject);
         }
     }

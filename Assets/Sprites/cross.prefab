@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6375033708154205164}
   - component: {fileID: 6740470382279258213}
   - component: {fileID: 3758686707693156568}
-  - component: {fileID: 7647418073216527581}
+  - component: {fileID: 5647180093106513643}
+  - component: {fileID: 2081898964242157514}
   m_Layer: 0
   m_Name: cross
   m_TagString: Untagged
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offScreenTimeThreshold: 6
---- !u!60 &7647418073216527581
+--- !u!60 &5647180093106513643
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,16 +145,24 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 2.35, y: 0.53}
-      - {x: 0.5983228, y: 0.5519283}
       - {x: 0.62, y: 2.34}
-      - {x: -0.61957866, y: 2.3801203}
-      - {x: -0.5914603, y: 0.55469185}
-      - {x: -2.4331186, y: 0.61091655}
-      - {x: -2.4501803, y: -0.49632013}
-      - {x: -0.58458257, y: -0.5366293}
-      - {x: -0.58566594, y: -2.3599398}
+      - {x: -0.76, y: 2.34}
+      - {x: -2.3899999, y: 1.61}
+      - {x: -2.3899999, y: -1.66}
+      - {x: -2.03, y: -2.3799999}
       - {x: 0.62, y: -2.3799999}
-      - {x: 0.59776366, y: -0.462991}
       - {x: 2.37, y: -0.48999998}
       - {x: 2.37, y: 0.51}
   m_UseDelaunayMesh: 0
+--- !u!114 &2081898964242157514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4891315986535371758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b37f12692ec994fb8144633d7eff27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

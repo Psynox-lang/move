@@ -14,7 +14,7 @@ public class FireEnemy : MonoBehaviour
     }
     void Update()
     {
-        inner.transform.Rotate(0, 0, 2f);
+        inner.Rotate(0, 0, 2f);
         // Check if the player is not null (exists)
         if (player != null)
         {
@@ -28,13 +28,5 @@ public class FireEnemy : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        
-        if (other.CompareTag("Player"))
-        {
-            
-            Destroy(gameObject);
-        }
-    }
+   
 }

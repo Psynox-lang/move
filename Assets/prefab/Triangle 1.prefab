@@ -223,7 +223,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fde407f10a4f544dd9e0da981187b85f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -252,6 +252,7 @@ MonoBehaviour:
   bulletspeed: 10
   player: {fileID: 0}
   gun: {fileID: 4649635614643240180}
+  canshoot: 0
   spreadAngle: 45
 --- !u!1001 &857342189691573768
 PrefabInstance:
@@ -321,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2782182955981892109, guid: 094c79dedd8c3475db1ff17ac31a6c67, type: 3}
+      propertyPath: gr
+      value: 
+      objectReference: {fileID: 8956033430533165449}
     - target: {fileID: 8041276185016428975, guid: 094c79dedd8c3475db1ff17ac31a6c67, type: 3}
       propertyPath: m_IsTrigger
       value: 1
