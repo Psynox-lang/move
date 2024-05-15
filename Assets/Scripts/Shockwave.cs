@@ -6,22 +6,23 @@ public class Shockwave : MonoBehaviour
 {
     public float radius = 5f;
     public float force = 10f;
-    [SerializeField]
-    Rigidbody2D rbp;
-    private Transform playerTransform;
-    public GameObject shock;
+    public float cooldownTime = 2f; // Set the cooldown time in seconds
+    private float lastShockwaveTime;
 
-    void Start()
-    {
-        playerTransform = transform; // Assuming the script is attached to the player object
-    }
+    [SerializeField]
+    private Rigidbody2D rbp;
+
+    public Transform playerTransform;
+    public GameObject shock;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // Change this to whatever key you want to trigger the shockwave
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShockwaveTime + cooldownTime)
         {
-            playerTransform.GetComponent<colourChangePortal>().shock();
-            Instantiate(shock,transform.position, Quaternion.identity);
+            lastShockwaveTime = Time.time;
+
+            playerTransform.gameObject.GetComponent<colourChangePortal>().shock();
+            Instantiate(shock, transform.position, Quaternion.identity);
             TriggerShockwave();
         }
     }
@@ -31,13 +32,13 @@ public class Shockwave : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(playerTransform.position, radius);
 
         foreach (Collider2D collider in colliders)
-        {   
+        {
             if (collider.CompareTag("Player")) continue;
-            
+
             Rigidbody2D rb = collider.GetComponent<Rigidbody2D>();
             if (rb != null && rb != rbp) // Exclude player's Rigidbody2D
-            {  
-                Debug.Log(collider.gameObject.name) ;
+            {
+                Debug.Log(collider.gameObject.name);
                 Vector3 direction = (collider.transform.position - playerTransform.position).normalized;
                 rb.AddForce(direction * force, ForceMode2D.Impulse);
             }

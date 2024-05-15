@@ -5,7 +5,7 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float speed = 5;     
+    public float speed = 5;
     [SerializeField] float MaxSpeed = 25;
     [SerializeField] float speedReduction = 0f;
 
@@ -31,11 +31,18 @@ public class movement : MonoBehaviour
     // Closest planet reference
     private GameObject closestPlanet;
 
+    // Reference to the ring GameObject in the planet
+    private GameObject planetRing;
+
+    // Reference to the currently attached planet
+    private GameObject attachedPlanet;
+
     public ParticleSystem earthpl;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -67,8 +74,8 @@ public class movement : MonoBehaviour
                 totalForce += CalculateGravityPull();
                 earthpl.Play();
             }
-
-            else{
+            else
+            {
                 earthpl.Stop();
             }
             rb.AddForce(totalForce, ForceMode2D.Force);
@@ -101,7 +108,7 @@ public class movement : MonoBehaviour
             if (distance > 0)
             {
                 float gravityStrength = gravityPullForce / distance;
-                totalGravity = direction.normalized * gravityStrength*1.25f;
+                totalGravity = direction.normalized * gravityStrength * 1.25f;
             }
         }
 
@@ -115,10 +122,22 @@ public class movement : MonoBehaviour
         {
             isControlPressed = true;
             FindClosestPlanet();
+
+            // Activate the ring when attached to a planet
+            if (attachedPlanet != null && planetRing != null)
+            {
+                planetRing.SetActive(true);
+            }
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
             isControlPressed = false;
+
+            // Deactivate the ring when leaving the planet
+            if (attachedPlanet != null && planetRing != null)
+            {
+                planetRing.SetActive(false);
+            }
         }
     }
 
@@ -139,8 +158,17 @@ public class movement : MonoBehaviour
             {
                 closestDistance = distance;
                 closestPlanet = planet;
+
+                // Update the reference to the ring GameObject
+                if (planet.transform.childCount >= 2)
+                {
+                    planetRing = planet.transform.GetChild(1).gameObject;
+                }
             }
         }
+
+        // Update the currently attached planet
+        attachedPlanet = closestPlanet;
     }
 
     public void RedSpeed()

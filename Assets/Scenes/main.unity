@@ -1766,7 +1766,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!224 &1331889413
 RectTransform:
@@ -8245,7 +8245,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2.74
   force: 10
+  cooldownTime: 2
   rbp: {fileID: 7589198767430390286}
+  playerTransform: {fileID: 5105696785926151716}
   shock: {fileID: 4265775046379960369, guid: c53275b655ca64b828ca74316c603b12, type: 3}
 --- !u!212 &7563109506667645954
 SpriteRenderer:
